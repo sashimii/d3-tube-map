@@ -2,3 +2,7 @@
 build/
 node_modules
 npm-debug.log
+
+map.svg
+map.png
+hitboxes.json

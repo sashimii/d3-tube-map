@@ -62,12 +62,12 @@ export default function tubeMap() {
       // Update the x-scale
       xScale
         .domain([minX, maxX])
-        .range([0, maxXRange]);
+        .range([margin.left, maxXRange]);
 
       // Update the y-scale
       yScale
         .domain([minY, maxY])
-        .range([maxYRange, 0]);
+        .range([maxYRange, margin.top]);
 
       // Update the x-geo-scale
       xGeoScale
@@ -87,7 +87,7 @@ export default function tubeMap() {
       // Select the svg element, if it exists
       svg = d3.select(this).selectAll("svg").data([data]);
 
-      var g = svg.enter().append("svg").append("g");
+      var g = svg.enter().append("g");
 
       // Fill with white rectangle to capture zoom events
       g.append("rect")
@@ -253,6 +253,10 @@ export default function tubeMap() {
             .style("display", function(d) { return d.hide !== true ? "block" : "none"; })
             .style("font-size", 1.2*lineWidth/lineWidthMultiplier + "px")
             .style("-webkit-user-select", "none")
+            .style('font-family', 'Hammersmith One, sans-serif')
+            .style('fill', '#0019A8')
+            .style('cursor', 'pointer')
+            .style('font-weight', 'normal')
             .attr("class", function(d) {
               return d.marker.map(function(marker) { return marker.line; }).join(" ");
             })
